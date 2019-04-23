@@ -1,12 +1,12 @@
 version: '1.0'
 steps: 
   restoreAndBuild:
-    image: nexus.pbs.one/retail/generationraw/builder-dotnet:${{BUILDER_TAG}}
+    image: mcr.microsoft.com/dotnet/core/sdk:2.2
     commands:
     - "dotnet build"
     - "ls -alR"
   dotNetTest:
-    image: nexus.pbs.one/retail/generationraw/builder-dotnet:${{BUILDER_TAG}}
+    image: mcr.microsoft.com/dotnet/core/sdk:2.2
     commands:
     - "ls -alR"
     - "dotnet test --no-build"
