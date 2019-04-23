@@ -1,0 +1,12 @@
+version: '1.0'
+steps: 
+  restoreAndBuild:
+    image: nexus.pbs.one/retail/generationraw/builder-dotnet:${{BUILDER_TAG}}
+    commands:
+    - "dotnet build"
+    - "ls -alR"
+  dotNetTest:
+    image: nexus.pbs.one/retail/generationraw/builder-dotnet:${{BUILDER_TAG}}
+    commands:
+    - "ls -alR"
+    - "dotnet test --no-build"
